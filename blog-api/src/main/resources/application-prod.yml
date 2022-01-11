@@ -1,0 +1,27 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: springboot-blog
+  datasource:
+    url: jdbc:mysql://172.17.0.3:3306/blog?useUnicode=true&characterEncoding=UTF-8&serverTimeZone=UTC
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #配置druid连接池
+
+  redis:
+    host: 172.17.0.2
+    port: 6379
+  servlet:
+    multipart:
+      max-file-size: 2MB
+      max-request-size: 20MB
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #控制日志输出
+
+  global-config:
+    db-config:
+      table-prefix: ms_ #数据库表名的前缀
