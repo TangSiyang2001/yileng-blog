@@ -14,7 +14,7 @@
         <id column="id" property="id"/>
         <result column="author_id" property="authorId"/>
         <result column="comment_counts" property="commentCounts"/>
-        <result column="create_date" property="createdDate"/>
+        <result column="created_date" property="createdDate"/>
         <result column="summary" property="summary"/>
         <result column="title" property="title"/>
         <result column="view_counts" property="viewCounts"/>
