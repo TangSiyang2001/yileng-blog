@@ -6,7 +6,6 @@ E:\E-drive-62796\springboot-blog\blog-api\src\main\java\com\tsy\blog\common\anno
 E:\E-drive-62796\springboot-blog\blog-api\src\main\java\com\tsy\blog\vo\UserVo.java
 E:\E-drive-62796\springboot-blog\blog-api\src\main\java\com\tsy\blog\service\SsoService.java
 E:\E-drive-62796\springboot-blog\blog-api\src\main\java\com\tsy\blog\vo\CommentVo.java
-E:\E-drive-62796\springboot-blog\blog-api\src\main\java\com\tsy\blog\common\annotation\LogAnnotation.java
 E:\E-drive-62796\springboot-blog\blog-api\src\main\java\com\tsy\blog\controller\TagController.java
 E:\E-drive-62796\springboot-blog\blog-api\src\main\java\com\tsy\blog\BlogApplication.java
 E:\E-drive-62796\springboot-blog\blog-api\src\main\java\com\tsy\blog\common\handler\interceptor\LoginInterceptor.java
@@ -67,4 +66,5 @@ E:\E-drive-62796\springboot-blog\blog-api\src\main\java\com\tsy\blog\vo\ArticleV
 E:\E-drive-62796\springboot-blog\blog-api\src\main\java\com\tsy\blog\dao\entity\SysUser.java
 E:\E-drive-62796\springboot-blog\blog-api\src\main\java\com\tsy\blog\utils\HttpContextUtils.java
 E:\E-drive-62796\springboot-blog\blog-api\src\main\java\com\tsy\blog\vo\params\PageParam.java
+E:\E-drive-62796\springboot-blog\blog-api\src\main\java\com\tsy\blog\common\annotation\LogRecord.java
 E:\E-drive-62796\springboot-blog\blog-api\src\main\java\com\tsy\blog\service\ThreadService.java

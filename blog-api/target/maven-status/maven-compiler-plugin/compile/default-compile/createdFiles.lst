@@ -31,6 +31,7 @@ com\tsy\blog\common\aop\CacheAspect.class
 com\tsy\blog\service\impl\TagServiceImpl.class
 com\tsy\blog\controller\TagController.class
 com\tsy\blog\dao\mapper\SysUserMapper.class
+com\tsy\blog\common\annotation\LogRecord.class
 com\tsy\blog\service\impl\CategoryServiceImpl.class
 com\tsy\blog\service\CategoryService.class
 com\tsy\blog\common\aop\LogAspect.class
@@ -53,7 +54,6 @@ com\tsy\blog\vo\params\SsoParam.class
 com\tsy\blog\dao\mapper\CommentMapper.class
 com\tsy\blog\service\StorageService.class
 com\tsy\blog\vo\Result$CodeMsg.class
-com\tsy\blog\common\annotation\LogAnnotation.class
 com\tsy\blog\service\impl\CommentServiceImpl.class
 com\tsy\blog\vo\params\CommentParam.class
 com\tsy\blog\service\impl\StorageServiceImpl.class

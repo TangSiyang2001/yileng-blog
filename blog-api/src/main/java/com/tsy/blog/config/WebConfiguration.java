@@ -26,7 +26,8 @@ public class WebConfiguration implements WebMvcConfigurer {
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
                 .allowedOrigins("http://localhost:8081")
-                .allowedHeaders("http://yileng.yop");
+                .allowedOrigins("http://yileng.top")
+                .allowedHeaders("http://blog.yileng.top");
     }
 
     /**
@@ -36,7 +37,6 @@ public class WebConfiguration implements WebMvcConfigurer {
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-
         registry.addInterceptor(loginInterceptor)
                 //评论需登录
                 .addPathPatterns("/comments/create/change")

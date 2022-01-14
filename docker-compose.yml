@@ -1,0 +1,24 @@
+version: '3'
+services:
+  nginx:
+    image: nginx
+    container_name: nginx
+    ports:
+      - 80:80
+      - 443:443
+    links:
+      - blog-app
+    depends_on:
+      - blog-app
+    volumes:
+      - /mnt/docker/docker-compose/nginx/:/etc/nginx/
+      - /mnt/mszlu/web:/mszlu/web
+      - /mnt/mszlu/blog:/mszlu/blog
+    network_mode: "bridge"
+
+  blog-app:
+    image: blog-app
+    container_name: blog-app
+    expose:
+      - "8888"
+    network_mode: "bridge"

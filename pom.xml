@@ -27,6 +27,15 @@
     </properties>
     <!--dependencyManagement起到控制子项目版本的作用，有版本标记的留下作为凭据，子项目中都要写
         https://www.jianshu.com/p/e867ac845e11-->
+    <profiles>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <profilesActive>prod</profilesActive>
+            </properties>
+        </profile>
+    </profiles>
+
     <dependencyManagement>
         <dependencies>
 
