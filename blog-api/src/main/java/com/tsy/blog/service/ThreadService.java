@@ -28,7 +28,7 @@ public class ThreadService {
      * @param article       文章对象
      */
     @Async("taskExecutor")
-    public void updateViewCount(Article article) {
+    public synchronized void updateViewCount(Article article) {
         final Long articleId = article.getId();
         final String redisKey = viewCountRedisPrefix + articleId;
         final Integer viewCount;

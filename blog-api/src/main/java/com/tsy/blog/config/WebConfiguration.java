@@ -16,6 +16,7 @@ import javax.annotation.Resource;
 public class WebConfiguration implements WebMvcConfigurer {
     @Resource
     private LoginInterceptor loginInterceptor;
+
     /**
      * 自定义跨域规则，允许来自8080端口的前端项目访问
      *
@@ -23,10 +24,13 @@ public class WebConfiguration implements WebMvcConfigurer {
      */
     @Override
     public void addCorsMappings(CorsRegistry registry) {
+        //allowedOrigins传入变长参数，而不是链式法则
         registry.addMapping("/**")
-                .allowedOrigins("http://localhost:8081")
-                .allowedOrigins("http://yileng.top")
-                .allowedHeaders("http://blog.yileng.top");
+                .allowedOrigins(
+                        "http://localhost:8081",
+                        "http://yileng.top",
+                        "http://blog.yileng.top"
+                );
     }
 
     /**
