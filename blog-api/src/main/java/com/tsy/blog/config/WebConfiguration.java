@@ -16,7 +16,6 @@ import javax.annotation.Resource;
 public class WebConfiguration implements WebMvcConfigurer {
     @Resource
     private LoginInterceptor loginInterceptor;
-
     /**
      * 自定义跨域规则，允许来自8080端口的前端项目访问
      *
