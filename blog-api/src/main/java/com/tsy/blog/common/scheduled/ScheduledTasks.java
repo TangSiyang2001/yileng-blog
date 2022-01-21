@@ -38,13 +38,12 @@ public class ScheduledTasks {
      * 多了前缀的，故redisTemplate.keys(viewCountRedisPrefix + "*")无法匹配到，key不是我们预期的 key.getBytes(),
      * 而是调用了this.keySerializer().serialize(key)，而debug的结果，默认Serializer是JdkSerializationRedisSerializer
      * 具体的实现很清晰了，就是 ObjectOutputStream,这个东西就是Java中最原始的序列化反序列流工具，会包含类型信息，所以会带上那串前缀了
+     * 配置后
      */
     @Scheduled(fixedRate = 10 * 1000)
     public void storeViewCount(){
         final Set<String> keys = redisTemplate.keys(viewCountRedisPrefix + "*");
-        log.error("开始");
         if (!CollectionUtils.isEmpty(keys)) {
-            log.error("记录");
             for (String key : keys) {
                 //根据下划线拆解原key获取articleId
                 final String[] parts = key.split("_");
