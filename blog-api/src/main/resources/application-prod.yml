@@ -22,9 +22,6 @@ spring:
       path: /blog-api
 
 mybatis-plus:
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #控制日志输出
-
   global-config:
     db-config:
       table-prefix: ms_ #数据库表名的前缀

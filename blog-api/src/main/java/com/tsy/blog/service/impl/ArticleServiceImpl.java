@@ -1,6 +1,7 @@
 package com.tsy.blog.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.tsy.blog.dao.entity.Article;
@@ -13,6 +14,7 @@ import com.tsy.blog.dao.mapper.ArticleTagMapper;
 import com.tsy.blog.service.*;
 import com.tsy.blog.utils.UserThreadLocalUtils;
 import com.tsy.blog.vo.*;
+import com.tsy.blog.vo.params.ArticleBodyParam;
 import com.tsy.blog.vo.params.ArticleParam;
 import com.tsy.blog.vo.params.PageParam;
 import org.joda.time.DateTime;
@@ -104,7 +106,7 @@ public class ArticleServiceImpl implements ArticleService {
         //在此处做浏览量的异步更新
         threadService.updateViewCount(article);
         final ArticleVo articleVo = copy(article, true, true, true, true);
-        articleVo.setViewCounts(redisTemplate.opsForValue().get(viewCountRedisPrefix+id));
+        articleVo.setViewCounts(redisTemplate.opsForValue().get(viewCountRedisPrefix + id));
         return Result.success(articleVo);
     }
 
@@ -119,7 +121,7 @@ public class ArticleServiceImpl implements ArticleService {
         if (hasAuthor) {
             //author在Article实体类中只有author的id，body的id，要从系统用户表中查询
             SysUser author = sysUserService.findUserById(article.getAuthorId());
-            UserVo userVo=new UserVo();
+            UserVo userVo = new UserVo();
             userVo.setId(author.getId());
             userVo.setAvatar(author.getAvatar());
             userVo.setNickname(author.getNickname());
@@ -153,6 +155,31 @@ public class ArticleServiceImpl implements ArticleService {
     @Transactional(rollbackFor = Exception.class)
     @Override
     public Result publishArticle(ArticleParam articleParam) {
+        Long articleId = articleParam.getId();
+        Article article;
+        boolean isEdit = (articleId != null);
+        if (isEdit) {
+            //说明为编辑请求
+            article = this.editArticle(articleParam);
+        } else {
+            //说明为正常添加
+            article = this.saveArticle(articleParam);
+        }
+        this.saveBody(isEdit,article, articleParam.getBody());
+        articleId = article.getId();
+        this.saveArticleTags(isEdit,articleId, articleParam.getTags());
+        ArticleVo articleVo = new ArticleVo();
+        articleVo.setId(articleId);
+        return Result.success(articleVo);
+    }
+
+    /**
+     * 将文章基本信息存入数据库
+     *
+     * @param articleParam 文章参数
+     * @return 回写后生成的文章(含id)
+     */
+    private Article saveArticle(ArticleParam articleParam) {
         //文章合法性检验可增加拦截器
         Article article = new Article();
         final SysUser onlineUser = UserThreadLocalUtils.get();
@@ -165,21 +192,48 @@ public class ArticleServiceImpl implements ArticleService {
         article.setWeight(Article.ARTICLE_COMMON);
         article.setCreatedDate(System.currentTimeMillis());
         articleMapper.insert(article);
+        //上面插入article后类中已经回写了id
+        return article;
+    }
+
+    private void saveBody(boolean isEdit, Article article, ArticleBodyParam bodyParam) {
         //bodyId先存入body表再取出
         ArticleBody articleBody = new ArticleBody();
-        BeanUtils.copyProperties(articleParam.getBody(), articleBody);
+        BeanUtils.copyProperties(bodyParam, articleBody);
         //上面插入article后类中已经回写了id
         final Long articleId = article.getId();
         articleBody.setArticleId(articleId);
-        articleBodyMapper.insert(articleBody);
-        article.setBodyId(articleBody.getId());
-        articleMapper.updateById(article);
+        if (isEdit) {
+            articleBodyMapper.update(
+                    articleBody,
+                    new LambdaUpdateWrapper<ArticleBody>().eq(ArticleBody::getArticleId,articleId)
+            );
+        } else {
+            articleBodyMapper.insert(articleBody);
+            article.setBodyId(articleBody.getId());
+            articleMapper.updateById(article);
+        }
+    }
+
+    private void saveArticleTags(boolean isEdit, Long articleId, List<TagVo> tags) {
         //关联表插入（insert是否要优化，如何批量插入？）
-        for (TagVo tag : articleParam.getTags()) {
+        if (isEdit) {
+            //先删再插入
+            articleTagMapper.delete(new LambdaQueryWrapper<ArticleTag>().eq(ArticleTag::getArticleId, articleId));
+        }
+        for (TagVo tag : tags) {
             articleTagMapper.insert(new ArticleTag(articleId, tag.getId()));
         }
-        ArticleVo articleVo = new ArticleVo();
-        articleVo.setId(article.getId());
-        return Result.success(articleVo);
+    }
+
+    private Article editArticle(ArticleParam articleParam) {
+        Article article = new Article();
+        //just id,summary and title are copied
+        BeanUtils.copyProperties(articleParam, article);
+        article.setCategoryId(articleParam.getCategory().getId());
+        article.setWeight(Article.ARTICLE_COMMON);
+        article.setCreatedDate(System.currentTimeMillis());
+        articleMapper.updateById(article);
+        return article;
     }
 }

@@ -1,6 +1,5 @@
 package com.tsy.blog.utils;
 
-import io.jsonwebtoken.Jwt;
 import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -45,8 +44,10 @@ public class JwtUtils {
             if(!StringUtils.hasLength(token) || Objects.equals(UNDEFINED,token)){
                 return null;
             }
-            final Jwt parse = Jwts.parser().setSigningKey(JWT_TOKEN).parse(token);
-            return (Map<String, Object>) parse.getBody();
+            return Jwts.parser()
+                    .setSigningKey(JWT_TOKEN)
+                    .parseClaimsJws(token)
+                    .getBody();
         }catch (Exception e){
             e.printStackTrace();
         }

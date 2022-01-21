@@ -69,4 +69,9 @@ public class ArticleController {
     public Result publishArticle(@RequestBody @ParamCheck ArticleParam articleParam) {
         return articleService.publishArticle(articleParam);
     }
+
+    @PostMapping("/{articleId}")
+    public Result findArticleToEditById(@PathVariable("articleId") Long articleId){
+        return articleService.findArticleById(articleId);
+    }
 }
