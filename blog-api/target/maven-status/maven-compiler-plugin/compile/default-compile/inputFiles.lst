@@ -51,6 +51,7 @@ E:\E-drive-62796\springboot-blog\blog-api\src\main\java\com\tsy\blog\dao\entity\
 E:\E-drive-62796\springboot-blog\blog-api\src\main\java\com\tsy\blog\utils\JwtUtils.java
 E:\E-drive-62796\springboot-blog\blog-api\src\main\java\com\tsy\blog\common\scheduled\ScheduledTasks.java
 E:\E-drive-62796\springboot-blog\blog-api\src\main\java\com\tsy\blog\service\impl\SsoServiceImpl.java
+E:\E-drive-62796\springboot-blog\blog-api\src\main\java\com\tsy\blog\config\RedisConfiguration.java
 E:\E-drive-62796\springboot-blog\blog-api\src\main\java\com\tsy\blog\controller\ArticleController.java
 E:\E-drive-62796\springboot-blog\blog-api\src\main\java\com\tsy\blog\service\impl\CommentServiceImpl.java
 E:\E-drive-62796\springboot-blog\blog-api\src\main\java\com\tsy\blog\dao\mapper\SysUserMapper.java

@@ -4,6 +4,7 @@ com\tsy\blog\controller\LogoutController.class
 com\tsy\blog\vo\params\ArticleParam.class
 com\tsy\blog\vo\TagVo.class
 com\tsy\blog\vo\ArticleBodyVo.class
+com\tsy\blog\config\RedisConfiguration.class
 com\tsy\blog\controller\UploadController.class
 com\tsy\blog\common\annotation\ParamCheck.class
 com\tsy\blog\dao\entity\Article.class
@@ -54,6 +55,7 @@ com\tsy\blog\vo\params\SsoParam.class
 com\tsy\blog\dao\mapper\CommentMapper.class
 com\tsy\blog\service\StorageService.class
 com\tsy\blog\vo\Result$CodeMsg.class
+com\tsy\blog\config\RedisConfiguration$CustomizedSerializer.class
 com\tsy\blog\service\impl\CommentServiceImpl.class
 com\tsy\blog\vo\params\CommentParam.class
 com\tsy\blog\service\impl\StorageServiceImpl.class
