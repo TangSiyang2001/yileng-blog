@@ -1,11 +1,14 @@
 package com.tsy.blog.admin.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import java.io.Serializable;
 
 /**
  * <p>
@@ -23,11 +26,14 @@ public class ArticleBody implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @JsonIgnore
+    @TableId(value = "id", type = IdType.AUTO)
+    private Long id;
+
     private String content;
 
     private String contentHtml;
 
     private Long articleId;
-
 
 }

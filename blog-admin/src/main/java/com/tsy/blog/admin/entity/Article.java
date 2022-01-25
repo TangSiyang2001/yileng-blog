@@ -1,11 +1,16 @@
 package com.tsy.blog.admin.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import java.io.Serializable;
 
 /**
  * <p>
@@ -22,6 +27,9 @@ import lombok.EqualsAndHashCode;
 public class Article implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+    @TableId(value = "id", type = IdType.AUTO)
+    private Long id;
 
     @ApiModelProperty(value = "评论数量")
     private Integer commentCounts;
@@ -44,11 +52,15 @@ public class Article implements Serializable {
     @ApiModelProperty(value = "作者id")
     private Long authorId;
 
-    @ApiModelProperty(value = "内容id")
+    @JsonIgnore
     private Long bodyId;
 
-    @ApiModelProperty(value = "类别id")
+    @JsonIgnore
     private Integer categoryId;
 
+    @TableField(exist = false)
+    private ArticleBody articleBody;
 
+    @TableField(exist = false)
+    private Category category;
 }

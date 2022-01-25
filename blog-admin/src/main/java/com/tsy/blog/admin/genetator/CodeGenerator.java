@@ -132,7 +132,7 @@ public class CodeGenerator {
         // 公共父类ms_admin,ms_admin_role,ms_article,ms_article_body,ms_article_tag,ms_category,ms_comment,ms_permission,ms_role,ms_sys_user,ms_tag,ms_role_permission
 //        strategy.setSuperControllerClass("你自己的父类控制器,没有就不用设置!");
         // 写于父类中的公共字段
-        strategy.setSuperEntityColumns("id");
+//        strategy.setSuperEntityColumns("id");
         strategy.setInclude(scanner("表名，多个英文逗号分割").split(","));
         strategy.setControllerMappingHyphenStyle(true);
         strategy.setTablePrefix("ms_");
