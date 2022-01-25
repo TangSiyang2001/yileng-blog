@@ -1,0 +1,14 @@
+server:
+  port: 8889
+spring:
+  profiles:
+    active: dev
+  application:
+    name: blog-admin
+
+mybatis-plus:
+  global-config:
+    db-config:
+      table-prefix: ms_ #数据库表名的前缀
+
+

@@ -37,7 +37,9 @@ public class RedisConfiguration {
     @Bean
     public RedisTemplate<String, Integer> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
         RedisTemplate<String, Integer> template = new RedisTemplate<>();
-        // key的序列化采用StringRedisSerializer
+        // key的序列化采用自定义的CustomizedSerializer
+        //可参考StringRedisTemplate的写法(选中RedisTemplate按ctrl+H可查看)
+        //可尝试使用RedisSerializer接口中的方法
         template.setKeySerializer(new CustomizedSerializer());
         template.setHashKeySerializer(new CustomizedSerializer());
         template.setConnectionFactory(redisConnectionFactory);
