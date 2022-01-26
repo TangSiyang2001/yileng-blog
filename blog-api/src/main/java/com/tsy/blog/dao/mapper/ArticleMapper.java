@@ -3,8 +3,8 @@ package com.tsy.blog.dao.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.tsy.blog.dao.entity.Archives;
-import com.tsy.blog.dao.entity.Article;
+import com.tsy.blog.dao.dto.Archives;
+import com.tsy.blog.dao.dto.Article;
 
 import java.util.List;
 

@@ -37,7 +37,7 @@ public class Swagger2Configuration {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 //页面标题
-                .title("XX平台API接口文档")
+                .title("blog后台管理API接口文档")
                 //创建人
                 .contact(new Contact("Steven.T", "https://blog.yileng.top",
                         "tangsiyang2001@foxmail.com"))

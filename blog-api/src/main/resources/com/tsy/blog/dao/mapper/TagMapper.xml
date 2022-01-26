@@ -4,7 +4,7 @@
 
 <mapper namespace="com.tsy.blog.dao.mapper.TagMapper">
     <!--Tag findTagsByArticleId(Long id);-->
-    <select id="findTagsByArticleId" parameterType="long" resultType="com.tsy.blog.dao.entity.Tag">
+    <select id="findTagsByArticleId" parameterType="long" resultType="com.tsy.blog.dao.dto.Tag">
         select id,avatar,tag_name as tagName from ms_tag where id in (select tag_id from ms_article_tag where article_id=#{articleId});
     </select>
     <!--List<Tag> findTagsByPopularity(int limit);-->
@@ -12,7 +12,7 @@
         SELECT tag_id from ms_article_tag GROUP BY article_id ORDER BY COUNT(*)  DESC LIMIT #{limit};
     </select>
     <!--List<Tag> findTagsByIds(List<Long> idList);-->
-    <select id="findTagsByIds" parameterType="list" resultType="com.tsy.blog.dao.entity.Tag">
+    <select id="findTagsByIds" parameterType="list" resultType="com.tsy.blog.dao.dto.Tag">
         select id,tag_name as tagName from ms_tag
         where id in
         <foreach collection="idList" item="id" separator="," open="(" close=")">

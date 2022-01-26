@@ -1,7 +1,7 @@
 package com.tsy.blog.service;
 
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
-import com.tsy.blog.dao.entity.Article;
+import com.tsy.blog.dao.dto.Article;
 import com.tsy.blog.dao.mapper.ArticleMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;

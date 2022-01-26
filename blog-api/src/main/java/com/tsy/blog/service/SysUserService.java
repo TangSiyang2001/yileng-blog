@@ -1,8 +1,8 @@
 package com.tsy.blog.service;
 
-import com.tsy.blog.dao.entity.SysUser;
-import com.tsy.blog.vo.Result;
-import com.tsy.blog.vo.UserVo;
+import com.tsy.blog.dao.dto.SysUser;
+import com.tsy.blog.web.vo.Result;
+import com.tsy.blog.web.vo.UserVo;
 
 /**
  * @author Steven.T

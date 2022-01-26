@@ -1,6 +1,6 @@
 package com.tsy.blog.config;
 
-import com.tsy.blog.common.handler.interceptor.LoginInterceptor;
+import com.tsy.blog.web.handler.interceptor.LoginInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;

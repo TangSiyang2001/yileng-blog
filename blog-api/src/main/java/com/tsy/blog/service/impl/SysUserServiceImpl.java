@@ -2,12 +2,12 @@ package com.tsy.blog.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.tsy.blog.dao.mapper.SysUserMapper;
-import com.tsy.blog.dao.entity.SysUser;
+import com.tsy.blog.dao.dto.SysUser;
 import com.tsy.blog.service.SsoService;
 import com.tsy.blog.service.SysUserService;
-import com.tsy.blog.vo.LoginUserVo;
-import com.tsy.blog.vo.Result;
-import com.tsy.blog.vo.UserVo;
+import com.tsy.blog.web.vo.LoginUserVo;
+import com.tsy.blog.web.vo.Result;
+import com.tsy.blog.web.vo.UserVo;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

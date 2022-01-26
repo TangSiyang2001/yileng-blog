@@ -1,12 +1,12 @@
 package com.tsy.blog.service.impl;
 
 import com.alibaba.fastjson.JSON;
-import com.tsy.blog.dao.entity.SysUser;
+import com.tsy.blog.dao.dto.SysUser;
 import com.tsy.blog.service.SsoService;
 import com.tsy.blog.service.SysUserService;
-import com.tsy.blog.utils.JwtUtils;
-import com.tsy.blog.vo.Result;
-import com.tsy.blog.vo.params.SsoParam;
+import com.tsy.blog.common.utils.JwtUtils;
+import com.tsy.blog.web.vo.Result;
+import com.tsy.blog.web.vo.params.SsoParam;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;

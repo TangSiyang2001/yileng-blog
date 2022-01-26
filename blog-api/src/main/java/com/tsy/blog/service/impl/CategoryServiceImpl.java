@@ -2,10 +2,10 @@ package com.tsy.blog.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.tsy.blog.dao.mapper.CategoryMapper;
-import com.tsy.blog.dao.entity.Category;
+import com.tsy.blog.dao.dto.Category;
 import com.tsy.blog.service.CategoryService;
-import com.tsy.blog.vo.CategoryVo;
-import com.tsy.blog.vo.Result;
+import com.tsy.blog.web.vo.CategoryVo;
+import com.tsy.blog.web.vo.Result;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 

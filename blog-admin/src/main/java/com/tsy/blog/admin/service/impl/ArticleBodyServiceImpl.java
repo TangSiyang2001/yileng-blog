@@ -1,7 +1,7 @@
 package com.tsy.blog.admin.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.tsy.blog.admin.common.response.ResponseResult;
+import com.tsy.blog.admin.web.vo.ResponseResult;
 import com.tsy.blog.admin.entity.ArticleBody;
 import com.tsy.blog.admin.mapper.ArticleBodyMapper;
 import com.tsy.blog.admin.service.IArticleBodyService;

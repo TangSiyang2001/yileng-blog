@@ -1,7 +1,7 @@
 package com.tsy.blog.dao.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.tsy.blog.dao.entity.ArticleBody;
+import com.tsy.blog.dao.dto.ArticleBody;
 
 /**
  * @author Steven.T

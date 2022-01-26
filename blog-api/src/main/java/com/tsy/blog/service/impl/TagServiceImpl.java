@@ -1,10 +1,10 @@
 package com.tsy.blog.service.impl;
 
 import com.tsy.blog.dao.mapper.TagMapper;
-import com.tsy.blog.dao.entity.Tag;
+import com.tsy.blog.dao.dto.Tag;
 import com.tsy.blog.service.TagService;
-import com.tsy.blog.vo.Result;
-import com.tsy.blog.vo.TagVo;
+import com.tsy.blog.web.vo.Result;
+import com.tsy.blog.web.vo.TagVo;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;

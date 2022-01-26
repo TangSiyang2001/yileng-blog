@@ -1,13 +1,16 @@
 package com.tsy.blog.admin.entity;
 
-import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.tsy.blog.admin.web.serialize.DateTimeFormatSerializer;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import java.io.Serializable;
 
 /**
  * <p>
@@ -37,6 +40,7 @@ public class SysUser implements Serializable {
     @ApiModelProperty(value = "头像")
     private String avatar;
 
+    @JsonSerialize(using = DateTimeFormatSerializer.class)
     @ApiModelProperty(value = "注册时间")
     private Long createDate;
 
@@ -47,6 +51,7 @@ public class SysUser implements Serializable {
     private String email;
 
     @ApiModelProperty(value = "最后登录时间")
+    @JsonSerialize(using = DateTimeFormatSerializer.class)
     private Long lastLogin;
 
     @ApiModelProperty(value = "手机号")

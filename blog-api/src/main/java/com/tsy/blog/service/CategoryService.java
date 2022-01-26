@@ -1,7 +1,7 @@
 package com.tsy.blog.service;
 
-import com.tsy.blog.vo.CategoryVo;
-import com.tsy.blog.vo.Result;
+import com.tsy.blog.web.vo.CategoryVo;
+import com.tsy.blog.web.vo.Result;
 
 /**
  * @author Steven.T

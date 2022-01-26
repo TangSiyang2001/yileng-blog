@@ -1,8 +1,8 @@
 package com.tsy.blog.service;
 
-import com.tsy.blog.vo.Result;
-import com.tsy.blog.vo.params.ArticleParam;
-import com.tsy.blog.vo.params.PageParam;
+import com.tsy.blog.web.vo.Result;
+import com.tsy.blog.web.vo.params.ArticleParam;
+import com.tsy.blog.web.vo.params.PageParam;
 
 /**
  * @author Steven.T

@@ -1,6 +1,6 @@
 package com.tsy.blog.admin.service;
 
-import com.tsy.blog.admin.common.response.ResponseResult;
+import com.tsy.blog.admin.web.vo.ResponseResult;
 import com.tsy.blog.admin.entity.ArticleBody;
 import com.baomidou.mybatisplus.extension.service.IService;
 
