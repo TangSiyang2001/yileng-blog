@@ -1,8 +1,8 @@
 package com.tsy.blog.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.tsy.blog.dao.mapper.SysUserMapper;
 import com.tsy.blog.dao.dto.SysUser;
+import com.tsy.blog.dao.mapper.SysUserMapper;
 import com.tsy.blog.service.SsoService;
 import com.tsy.blog.service.SysUserService;
 import com.tsy.blog.web.vo.LoginUserVo;
@@ -85,5 +85,8 @@ public class SysUserServiceImpl implements SysUserService {
         return userVo;
     }
 
-
+    @Override
+    public void refreshLastLogin(SysUser user) {
+        sysUserMapper.updateById(user);
+    }
 }

@@ -10,5 +10,6 @@ mybatis-plus:
   global-config:
     db-config:
       table-prefix: ms_ #数据库表名的前缀
+      logic-delete-field: deleted
 
 

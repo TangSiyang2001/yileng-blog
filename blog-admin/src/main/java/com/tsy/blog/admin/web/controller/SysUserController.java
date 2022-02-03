@@ -5,9 +5,11 @@ import com.tsy.blog.admin.web.vo.MsgCode;
 import com.tsy.blog.admin.web.vo.ResponseResult;
 import com.tsy.blog.admin.entity.SysUser;
 import com.tsy.blog.admin.service.ISysUserService;
+import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -18,6 +20,7 @@ import java.util.List;
  * @author Steven.T
  * @since 2022-01-25
  */
+@Api("SysUserController")
 @RestController
 @RequestMapping("/sys-user")
 public class SysUserController {
@@ -33,12 +36,12 @@ public class SysUserController {
     }
 
     @PostMapping
-    public ResponseResult createUser(@RequestBody SysUser user){
+    public ResponseResult createUser(@RequestBody @Valid SysUser user){
         return userService.save(user) ? ResponseResult.success() : ResponseResult.fail(MsgCode.OPERATION_FAIL);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseResult deleteUser(@PathVariable Integer id){
+    public ResponseResult deleteUser(@PathVariable Long id){
         return userService.removeById(id) ? ResponseResult.success() : ResponseResult.fail(MsgCode.OPERATION_FAIL);
     }
 
@@ -46,5 +49,6 @@ public class SysUserController {
     public ResponseResult updateUser(@RequestBody SysUser user){
         return userService.updateById(user) ? ResponseResult.success() : ResponseResult.fail(MsgCode.OPERATION_FAIL);
     }
+
 
 }

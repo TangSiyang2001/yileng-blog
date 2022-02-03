@@ -14,6 +14,6 @@ public class SsoParam {
 
     private String password;
 
-    private String nickName;
+    private String nickname;
 
 }

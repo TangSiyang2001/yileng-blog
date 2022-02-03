@@ -7,7 +7,7 @@ import com.tsy.blog.dao.dto.Comment;
 import com.tsy.blog.dao.dto.SysUser;
 import com.tsy.blog.service.CommentService;
 import com.tsy.blog.service.SysUserService;
-import com.tsy.blog.service.ThreadService;
+import com.tsy.blog.task.ThreadService;
 import com.tsy.blog.common.utils.UserThreadLocalUtils;
 import com.tsy.blog.web.vo.CommentVo;
 import com.tsy.blog.web.vo.Result;

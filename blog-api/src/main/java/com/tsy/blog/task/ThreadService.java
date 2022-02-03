@@ -1,4 +1,4 @@
-package com.tsy.blog.service;
+package com.tsy.blog.task;
 
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.tsy.blog.dao.dto.Article;

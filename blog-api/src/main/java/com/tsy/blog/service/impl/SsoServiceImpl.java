@@ -54,6 +54,8 @@ public class SsoServiceImpl implements SsoService {
             return Result.fail(Result.CodeMsg.ACCOUNT_PASSWORD_NOT_EXIST);
         }
         String token = JwtUtils.createToken(user.getId());
+        user.setLastLogin(System.currentTimeMillis());
+        sysUserService.refreshLastLogin(user);
         redisTemplate.opsForValue().set(tokenRedisPrefix + token, JSON.toJSONString(user), 1, TimeUnit.DAYS);
         return Result.success(token);
     }
@@ -70,7 +72,7 @@ public class SsoServiceImpl implements SsoService {
     public Result register(SsoParam ssoParam) {
         final String account = ssoParam.getAccount();
         final String password = ssoParam.getPassword();
-        final String nickname = ssoParam.getNickName();
+        final String nickname = ssoParam.getNickname();
         if (sysUserService.findUserByAccount(account) != null) {
             return Result.fail(Result.CodeMsg.EXISTED_ACCOUNT);
         }
@@ -80,9 +82,9 @@ public class SsoServiceImpl implements SsoService {
         sysUser.setPassword(DigestUtils.md5Hex(password + SALT));
         sysUser.setCreateDate(System.currentTimeMillis());
         sysUser.setLastLogin(System.currentTimeMillis());
-        sysUser.setAvatar("/static/img/logo.b3a48c0.png");
+        sysUser.setAvatar("static/user/user_2.png");
         //1 为true
-        sysUser.setAdmin(1);
+        sysUser.setAdmin(0);
         // 0 为false
         sysUser.setDeleted(0);
         sysUser.setSalt("");

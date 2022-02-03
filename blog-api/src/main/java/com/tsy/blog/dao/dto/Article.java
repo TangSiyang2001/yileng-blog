@@ -46,4 +46,9 @@ public class Article {
      * 创建时间
      */
     private Long createdDate;
+
+    /**
+     * 是否被删除
+     */
+    private Integer deleted;
 }

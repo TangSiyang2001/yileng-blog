@@ -1,13 +1,15 @@
 package com.tsy.blog.admin.entity;
 
-import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import javax.validation.constraints.NotBlank;
+import java.io.Serializable;
 
 /**
  * <p>
@@ -28,9 +30,11 @@ public class Tag implements Serializable {
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
+    @NotBlank(message = "标签名不能为空")
     @ApiModelProperty(value = "标签名")
     private String tagName;
 
+    @NotBlank(message = "标签图像不能为空")
     private String avatar;
 
 

@@ -5,12 +5,15 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.tsy.blog.admin.web.serialize.DateTimeFormatSerializer;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * <p>
@@ -27,13 +30,14 @@ import java.io.Serializable;
 public class Article implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
+    
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
     @ApiModelProperty(value = "评论数量")
     private Integer commentCounts;
 
+    @JsonSerialize(using = DateTimeFormatSerializer.class)
     @ApiModelProperty(value = "创建时间")
     private Long createdDate;
 
@@ -58,9 +62,16 @@ public class Article implements Serializable {
     @JsonIgnore
     private Integer categoryId;
 
+    @JsonIgnore
+    private Integer deleted;
+
     @TableField(exist = false)
     private ArticleBody articleBody;
 
     @TableField(exist = false)
     private Category category;
+
+    @TableField(exist = false)
+    private List<Tag> tags;
+
 }

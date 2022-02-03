@@ -44,7 +44,7 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
         adminMapper.insert(admin);
         AdminRole adminRole = new AdminRole();
         adminRole.setAdminId(admin.getId());
-        adminRole.setRoleId(DefaultValues.DEFUALT_ROLE_ID);
+        adminRole.setRoleId(DefaultValues.DEFAULT_ROLE_ID);
         return adminRoleService.save(adminRole) ? ResponseResult.success() : ResponseResult.fail(MsgCode.OPERATION_FAIL);
     }
 }

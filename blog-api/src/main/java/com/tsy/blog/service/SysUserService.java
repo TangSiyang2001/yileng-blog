@@ -53,4 +53,9 @@ public interface SysUserService {
      */
     UserVo findUserVoById(Long id);
 
+    /**
+     * 更新用户最近上线时间
+     * @param user 用户
+     */
+    void refreshLastLogin(SysUser user);
 }

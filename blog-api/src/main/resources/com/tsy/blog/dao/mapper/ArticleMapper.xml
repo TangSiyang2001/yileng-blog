@@ -25,7 +25,7 @@
     <select id="listArticles" resultMap="articleMap">
         SELECT * FROM `ms_article`
         <where>
-            1=1
+            deleted = 0
             <if test="categoryId != null">
                 AND category_id = #{categoryId}
             </if>
