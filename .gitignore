@@ -14,18 +14,6 @@ target/
 .springBeans
 .sts4-cache
 
-### Private ###
-blog.conf
-docker-compose.yml
-dockerfile.txt
-blog-api/src/main/resources/application.properties
-blog-api/src/main/resources/application.yml
-blog-api/src/main/resources/application-prod.yml
-blog-api/src/main/resources/application-prod.properties
-
-blog-admin/src/main/resources/application-dev.yml
-
-
 
 
 
@@ -52,3 +40,14 @@ build/
 
 ### blog-admin ###
 #**/blog-admin
+
+### Private ###
+blog.conf
+docker-compose.yml
+dockerfile.txt
+blog-api/src/main/resources/application.properties
+blog-api/src/main/resources/application.yml
+blog-api/src/main/resources/application-prod.yml
+blog-api/src/main/resources/application-prod.properties
+
+blog-admin/src/main/resources/application-dev.yml
