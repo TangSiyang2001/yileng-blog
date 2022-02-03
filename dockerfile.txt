@@ -1,4 +1,0 @@
-FROM openjdk:11
-MAINTAINER tangsiyang <tangsiyang2001@fox.mail>
-ADD ./blog-app.jar /blog-app.jar # 容器外路径 容器内路径
-CMD java -jar /blog-app.jar
